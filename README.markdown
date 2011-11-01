@@ -8,10 +8,11 @@ Installation
 =======
 
 Add to Gemfile:
-    gem 'spree_testimonials', :git => 'git://github.com/divineforest/spree_testimonials.git'
+    gem 'spree_testimonials', :git => 'git://github.com/jsqu99/spree_testimonials.git'
 
 and then run
     bundle install
-    rake spree_testimonials:install && && rake db:migrate
+    bundle exec rake spree_testimonials:install
+    bundle exec rake db:migrate
 
 Copyright (c) 2010 [divineforest](http://github.com/divineforest), released under the New BSD License
