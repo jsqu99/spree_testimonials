@@ -10,6 +10,7 @@
   <%= will_paginate(@testimonials) %>
 	<div class="testimonial-listing">
 		<% @testimonials.each do |testimonial| %>
+      <% next unless testimonial.approved? %>
 			<div class="testimonial">
 				<div class="testimonial-name">
 					<%= testimonial.name %>

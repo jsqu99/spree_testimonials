@@ -6,8 +6,6 @@ class TestimonialsController < Spree::BaseController
   end
 
   create.response do |format|
-    format.html { redirect_to collection_url }
+    format.html { redirect_to :root, :notice => "Thank you!.  This testimonial will be displayed shortly on our testimonials page"}
   end
-
-
 end
