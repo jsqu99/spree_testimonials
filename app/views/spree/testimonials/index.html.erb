@@ -7,7 +7,7 @@
 <% if @testimonials.blank? %>
   <%= t(:no_testimonials) %>
 <% else %>
-  <%= will_paginate(@testimonials) %>
+  <%= paginate(@testimonials) %>
 	<div class="testimonial-listing">
 		<% @testimonials.each do |testimonial| %>
       <% next unless testimonial.approved? %>
@@ -21,7 +21,7 @@
 			</div>
 		<% end %>
 	</div>
-  <%= will_paginate(@testimonials) %>
+  <%= paginate(@testimonials) %>
 <% end %>
 
 <div class="testimonial-form">
