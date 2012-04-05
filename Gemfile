@@ -10,4 +10,6 @@ else
   gem "ruby-debug19"
 end
 
+gem 'rd_resource_controller', :git => 'git://github.com/jsqu99/resource_controller.git'
+
 gemspec

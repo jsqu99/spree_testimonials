@@ -2,8 +2,8 @@ class SpreeTestimonialsAbility
   include CanCan::Ability
 
   def initialize(user)
-    can :read, Testimonial
-    can :index, Testimonial
-    can :create, Testimonial
+    can :read, Spree::Testimonial
+    can :index, Spree::Testimonial
+    can :create, Spree::Testimonial
   end
 end
