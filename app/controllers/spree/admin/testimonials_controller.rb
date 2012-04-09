@@ -2,19 +2,37 @@ module Spree
   class Admin::TestimonialsController < Admin::ResourceController
 
     def index
-      @testimonials = Testimonial.order("created_at DESC").paginate(:per_page => 30, :page => params[:page])
+      @testimonials = Testimonial.order("created_at DESC") #.paginate(:per_page => 30, :page => params[:page])
     end
 
-    create.response do |format|
-      format.html { redirect_to collection_url }
+    def create
+      @testimonial = Testimonial.new(params[:testimonial])
+
+      respond_to do |format|
+        if @testimonial.save
+          format.html { redirect_to collection_url }
+        else
+          format.html { render :action => "new" }
+        end
+      end
     end
 
-    update.response do |format|
-      format.html { redirect_to collection_url }
+    def update 
+      @testimonial = Testimonial.find(params[:id])
+      if @testimonial.update_attributes(params[:testimonial])
+        redirect_to collection_url
+      else
+        render :action => "edit"
+      end
     end
 
-    destroy.response do |format|
-      format.js  { render_js_for_destroy }
+    def destroy
+      @testimonial = Testimonial.find(params[:id])
+      @testimonial.destroy
+
+      respond_to do |format|
+        format.js  { render_js_for_destroy }
+      end
     end
 
     def approve

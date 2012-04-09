@@ -1,4 +1,4 @@
-<%= render :partial => 'admin/shared/configuration_menu' %>
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
 
 <div class='toolbar'>
   <ul class='actions'>
@@ -10,8 +10,6 @@
 </div>
 
 <h1><%= t("testimonials") %></h1>
-
-<%= will_paginate(@testimonials) %>
 
 <table class="index">
 	<tr>
@@ -35,7 +33,7 @@
 
       <% action = testimonial.approved? ? :deny : :approve %>
       <td>
-        <%= render :partial => "admin/testimonials/approve_deny_button", :locals=>{:action=>action, :testimonial=>testimonial} %>
+        <%= render :partial => "spree/admin/testimonials/approve_deny_button", :locals=>{:action=>action, :testimonial=>testimonial} %>
       </td>
 			<td>
         <%= link_to_edit testimonial %> &nbsp;
@@ -46,4 +44,3 @@
 	</tbody>
 </table>
 
-<%= will_paginate(@testimonials) %>
