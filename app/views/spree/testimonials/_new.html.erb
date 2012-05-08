@@ -1,6 +1,6 @@
 <h2><%= t(:add_your_testimonial) %></h2>
 
-<% form_for(:testimonial, :url => collection_url) do |f| %>
+<%= form_for(:testimonial, :url => collection_url) do |f| %>
   <%= render :partial => "form", :locals => { :f => f } %>
   <p class="form-buttons">
     <button type='submit' class='large primary'>
