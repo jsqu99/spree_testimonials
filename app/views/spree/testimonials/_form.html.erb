@@ -14,6 +14,12 @@
       <%= f.error_message_on :email %>
     <% end %>
 
+    <%= f.field_container :title do %>
+      <%= f.label :title %> <span class="required">*</span><br />
+      <%= f.text_field :title, :class => 'fullwidth title' %>
+      <%= f.error_message_on :title %>
+    <% end %>
+
     <%= f.field_container :body do %>
       <%= f.label :body %><span class="required">*</span><br />
       <%= f.text_area :body, {:class => 'fullwidth'} %>

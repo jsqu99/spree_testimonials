@@ -8,15 +8,17 @@
 
 <table class="index">
   <colgroup>
-    <col style="width: 20%" />
-    <col style="width: 20%" />
-    <col style="width: 50%" />
+    <col style="width: 15%" />
+    <col style="width: 15%" />
+    <col style="width: 15%" />
+    <col style="width: 45%" />
     <col style="width: 10%" />
   </colgroup>
   <thead>
     <tr>
       <th><%= Spree::Page.human_attribute_name(:name) %></th>
       <th><%= Spree::Page.human_attribute_name(:email) %></th>
+      <th><%= Spree::Page.human_attribute_name(:title) %></th>
       <th><%= Spree::Page.human_attribute_name(:body) %></th>
       <th><%= Spree::Page.human_attribute_name(:state) %></th>
       <th class="actions"></th>
@@ -26,24 +28,16 @@
   <tbody>
     <% @testimonials.each do |testimonial| %>
       <tr class="<%= cycle('odd', 'even') %>" id="<%= dom_id testimonial %>">
-        <td>
-          <%= testimonial.name %>
-        </td>
-        <td>
-          <%= testimonial.email %>
-        </td>
-        <td>
-          <%= testimonial.body %>
-        </td>
+        <td><%= testimonial.name %></td>
+        <td><%= testimonial.email %></td>
+        <td><%= testimonial.title %></td>
+        <td><%= testimonial.body %></td>
 
         <% action = testimonial.approved? ? :deny : :approve %>
         <td>
           <%= render :partial => "spree/admin/testimonials/approve_deny_button", :locals=>{:action=>action, :testimonial=>testimonial} %>
         </td>
 
-        <!-- <td class="align-center">
-          <%# content_tag(:i, '', :class => 'icon-ok green') if page.visible %>
-        </td> -->
         <td  class="actions">
           <%= link_to_edit testimonial, :no_text => true %>
           <%= link_to_delete testimonial, :no_text => true %>
