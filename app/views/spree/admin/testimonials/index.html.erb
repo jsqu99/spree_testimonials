@@ -1,46 +1,54 @@
-<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+<% content_for :page_actions do %>
+  <li><%= button_link_to Spree.t("spree_testimonials.new_testimonial"), new_object_url, :icon => 'icon-plus' %></li>
+<% end %>
 
-<div class='toolbar'>
-  <ul class='actions'>
-    <li id="new_testimonial_link">
-      <%= button t('actions.create') %>
-    </li>
-  </ul>
-  <br class='clear' />
-</div>
-
-<h1><%= t("testimonials") %></h1>
+<% content_for :page_title do %>
+   <%= Spree.t("spree_testimonials.testimonials") %>
+<% end %>
 
 <table class="index">
-	<tr>
-		<th><%= t("testimonial_name") %></th>
-		<th><%= t("email") %></th>
-		<th><%= t("testimonial_body") %></th>
-		<th colspan='2'><%= t("action") %></th>
-  </tr>
-	<tbody>
-    	<% @testimonials.each do |testimonial| %>
-		<tr class="<%= cycle('even', 'odd') %>" id="<%= dom_id(testimonial) %>">
-			<td>
-				<%= testimonial.name %>
-			</td>
-			<td>
-				<%= testimonial.email %>
-			</td>
-			<td>
-				<%= testimonial.body %>
-			</td>
+  <colgroup>
+    <col style="width: 20%" />
+    <col style="width: 20%" />
+    <col style="width: 50%" />
+    <col style="width: 10%" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th><%= Spree::Page.human_attribute_name(:name) %></th>
+      <th><%= Spree::Page.human_attribute_name(:email) %></th>
+      <th><%= Spree::Page.human_attribute_name(:body) %></th>
+      <th><%= Spree::Page.human_attribute_name(:state) %></th>
+      <th class="actions"></th>
+    </tr>
+  </thead>
 
-      <% action = testimonial.approved? ? :deny : :approve %>
-      <td>
-        <%= render :partial => "spree/admin/testimonials/approve_deny_button", :locals=>{:action=>action, :testimonial=>testimonial} %>
-      </td>
-			<td>
-        <%= link_to_edit testimonial %> &nbsp;
-        <%= link_to_delete testimonial %>
-	    </td>
-		</tr>
-		<% end %>
-	</tbody>
+  <tbody>
+    <% @testimonials.each do |testimonial| %>
+      <tr class="<%= cycle('odd', 'even') %>" id="<%= dom_id testimonial %>">
+        <td>
+          <%= testimonial.name %>
+        </td>
+        <td>
+          <%= testimonial.email %>
+        </td>
+        <td>
+          <%= testimonial.body %>
+        </td>
+
+        <% action = testimonial.approved? ? :deny : :approve %>
+        <td>
+          <%= render :partial => "spree/admin/testimonials/approve_deny_button", :locals=>{:action=>action, :testimonial=>testimonial} %>
+        </td>
+
+        <!-- <td class="align-center">
+          <%# content_tag(:i, '', :class => 'icon-ok green') if page.visible %>
+        </td> -->
+        <td  class="actions">
+          <%= link_to_edit testimonial, :no_text => true %>
+          <%= link_to_delete testimonial, :no_text => true %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
-

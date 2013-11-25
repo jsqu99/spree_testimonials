@@ -1,13 +1,16 @@
-<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+<% content_for :page_title do %>
+   <%= Spree.t("spree_testimonials.testimonials") %> <i class="icon-arrow-right"></i> <%= Spree.t("spree_testimonials.editing_testimonial") %> "<%= @testimonial.name %>"
+<% end %>
 
-<h1><%= t("editing_testimonial") %></h1>
+<% content_for :page_actions do %>
+  <li><%= button_link_to Spree.t(:back_to_testimonials_list), spree.admin_testimonials_url, :icon => 'icon-arrow-left' %></li>
+<% end %>
+
 <%= render "spree/shared/error_messages", :target => @testimonial %>
 
-<%=form_for(:testimonial, :url => admin_testimonial_url(@testimonial), :method => :put) do |f| %>
-  <%= render :partial => "form", :locals => { :f => f } %>
-
-  <p class="form-buttons">
-    <%= button t("actions.update"), nil, 'submit', {"class" => "wymupdate"} %>
-    <%= t("or") %> <%= link_to t("actions.cancel"), collection_url %>
-  </p>
+<%= form_for [:admin, @testimonial] do |f| %>
+  <fieldset class="no-border-top">
+    <%= render :partial => 'form', :locals => { :f => f } %>
+    <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
+  </fieldset>
 <% end %>
