@@ -1,8 +1,8 @@
-<%= content_tag :h2, Spree.t(:add_your_testimonial), :class => 'new-testimonial' %>
+<%= content_tag :h2, Spree.t('testimonials.add_your_testimonial'), :class => 'new-testimonial' %>
 
 <%= form_for(:testimonial, :html => {}) do |f| %>
   <%= render :partial => "form", :locals => { :f => f } %>
   <p class="testimonial_submit">
-    <%= f.submit Spree.t(:submit), :class => "button bg_darkfirst" %>
+    <%= f.submit Spree.t('testimonials.add'), :class => "button bg_darkfirst" %>
   </p>
 <% end %>

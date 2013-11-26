@@ -11,7 +11,7 @@ class Spree::TestimonialsController < Spree::StoreController
     @testimonial = Spree::Testimonial.new(params[:testimonial])
 
     if @testimonial.save
-      flash[:notice] = Spree.t('testimonial_successfully_submitted')
+      flash[:notice] = Spree.t('testimonials.testimonial_successfully_submitted')
       redirect_to spree.testimonials_path
     else
       render :action => "new"

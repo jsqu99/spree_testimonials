@@ -1,9 +1,9 @@
 <% content_for :page_actions do %>
-  <li><%= button_link_to Spree.t("spree_testimonials.new_testimonial"), new_object_url, :icon => 'icon-plus' %></li>
+  <li><%= button_link_to Spree.t('testimonials.new_testimonial'), new_object_url, :icon => 'icon-plus' %></li>
 <% end %>
 
 <% content_for :page_title do %>
-   <%= Spree.t("spree_testimonials.testimonials") %>
+   <%= Spree.t('testimonials.testimonials') %>
 <% end %>
 
 <table class="index">
@@ -16,11 +16,11 @@
   </colgroup>
   <thead>
     <tr>
-      <th><%= Spree::Page.human_attribute_name(:name) %></th>
-      <th><%= Spree::Page.human_attribute_name(:email) %></th>
-      <th><%= Spree::Page.human_attribute_name(:title) %></th>
-      <th><%= Spree::Page.human_attribute_name(:body) %></th>
-      <th><%= Spree::Page.human_attribute_name(:state) %></th>
+      <th><%= Spree.t('testimonials.name') %></th>
+      <th><%= Spree.t('testimonials.email') %></th>
+      <th><%= Spree.t('testimonials.title') %></th>
+      <th><%= Spree.t('testimonials.body') %></th>
+      <th><%= Spree.t('testimonials.state') %></th>
       <th class="actions"></th>
     </tr>
   </thead>

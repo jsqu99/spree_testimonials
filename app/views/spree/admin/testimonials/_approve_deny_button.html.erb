@@ -1,5 +1,5 @@
 <% if action==:approve  %>
-  <%= link_to_with_icon('add', t('spree.testimonials.approve'), approve_admin_testimonial_url(testimonial)) %>
+  <%= link_to Spree.t('testimonials.approve'), approve_admin_testimonial_url(testimonial) %>
 <% else %>
-  <%= link_to_with_icon('delete', t('spree.testimonials.revoke approval'), deny_admin_testimonial_url(testimonial)) %>
+  <%= link_to Spree.t('testimonials.revoke_approval'), deny_admin_testimonial_url(testimonial) %>
 <% end %>

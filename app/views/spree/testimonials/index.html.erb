@@ -1,11 +1,7 @@
-<% content_for :head do %>
-	<%= stylesheet_link_tag "testimonials" %>
-<% end %>
-
-<h1><%= t(:testimonials) %></h1>
+<h1><%= Spree.t("testimonials.testimonials") %></h1>
 
 <% if @testimonials.blank? %>
-  <%= t(:no_testimonials) %>
+  <%= Spree.t("testimonials.no_testimonials") %>
 <% else %>
   <%= paginate(@testimonials) %>
 	<div class="testimonial-listing">
