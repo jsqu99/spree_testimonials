@@ -1,0 +1,19 @@
+fr:
+  spree:
+    spree_testimonials: Témoignages
+    testimonials:
+      add: Ajouter
+      add_your_testimonial: Ajoutez votre témoignage
+      approve: Approuver
+      back_to_testimonials_list: Retourner à la liste des témoignages
+      body: Message
+      editing_testimonial: Éditer le témoignage
+      email: Courriel
+      name: Nom
+      new_testimonial: Nouveau témoignage
+      no_testimonials: Aucun témoignage
+      revoke_approval: "Révoquer l'approbation"
+      state: État
+      testimonial_successfully_submitted: "Votre témoignage a été ajouté avec succès, il sera validé par un administration dans les plus brefs délais, merci."
+      testimonials: Témoignages
+      title: Titre

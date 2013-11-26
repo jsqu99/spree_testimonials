@@ -1,27 +1,25 @@
-<% content_for :head do %>
-	<%= stylesheet_link_tag "testimonials" %>
-<% end %>
-
-<h1><%= t(:testimonials) %></h1>
+<h1><%= Spree.t("testimonials.testimonials") %></h1>
 
 <% if @testimonials.blank? %>
-  <%= t(:no_testimonials) %>
+  <%= Spree.t("testimonials.no_testimonials") %>
 <% else %>
   <%= paginate(@testimonials) %>
 	<div class="testimonial-listing">
 		<% @testimonials.each do |testimonial| %>
-      <% next unless testimonial.approved? %>
 			<div class="testimonial">
 				<div class="testimonial-name">
 					<%= testimonial.name %>
 				</div>
+        <div class="testimonial-title">
+          <%= testimonial.title %>
+        </div>
 				<div class="testimonial-body">
 					<%= testimonial.body %>
 				</div>
 			</div>
 		<% end %>
 	</div>
-  <%= paginate(@testimonials) %>
+  <%= paginate @testimonials %>
 <% end %>
 
 <div class="testimonial-form">

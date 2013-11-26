@@ -1,10 +1,27 @@
-<table class="admin-report" width="545">
-	<tr>
-    <td valign="top"><%= t("testimonial_name") %>:</td>
-    <td><%= f.text_field :name, {"style" => "width:500px"} %></td>
-  </tr>
-  <tr>
-    <td valign="top"><%= t("testimonial_body") %>:</td>
-    <td><%= f.text_area :body, {"style" => "width:500px"} %></td>
-  </tr>
-</table>
+<div class="row">
+  <div class="alpha ten columns">
+    <%= f.field_container :name do %>
+      <%= f.label Spree.t('testimonials.name') %> <span class="required">*</span><br />
+      <%= f.text_field :name, :class => 'fullwidth title' %>
+      <%= f.error_message_on :name %>
+    <% end %>
+
+    <%= f.field_container :email do %>
+      <%= f.label Spree.t('testimonials.email') %> <span class="required">*</span><br />
+      <%= f.text_field :email, :class => 'fullwidth title' %>
+      <%= f.error_message_on :email %>
+    <% end %>
+
+    <%= f.field_container :title do %>
+      <%= f.label Spree.t('testimonials.title') %> <span class="required">*</span><br />
+      <%= f.text_field :title, :class => 'fullwidth title' %>
+      <%= f.error_message_on :title %>
+    <% end %>
+
+    <%= f.field_container :body do %>
+      <%= f.label Spree.t('testimonials.body') %><span class="required">*</span><br />
+      <%= f.text_area :body, {:class => 'fullwidth'} %>
+      <%= f.error_message_on :body %>
+    <% end %>
+  </div>
+</div>
